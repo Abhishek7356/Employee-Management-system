@@ -1,0 +1,25 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.employSec{
+    background-color: rgb(232, 230, 230);
+}
+
+.emp img{
+    width: 80%;
+}
+.emp{
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+}
+.employSec{
+    padding: 70px 0;
+}
+.empSearch{
+    display: flex;
+    justify-content: space-around
+}
