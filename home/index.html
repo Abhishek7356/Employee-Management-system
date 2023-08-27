@@ -68,10 +68,10 @@
                         <div class="mb-3 pt-4">
                             <label for="exampleInputEmail1" class="form-label">Find Employee</label>
                             <div class="empSearch">
-                                <input type="text" class="form-control" placeholder="Search employee ID" id="">
+                                <input type="text" class="form-control" placeholder="Search employee ID" id="search">
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop">
+                                <button id="modalButton" onclick="displayDetails()" type="button" class="btn btn-primary"
+                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                     Search
                                 </button>
 
@@ -82,17 +82,29 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Employee Details
+                                                </h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                ...
+                                                <img src="https://cdn0.iconfinder.com/data/icons/management-1/100/business-05-512.png"
+                                                    width="50%" style="display: block; margin: auto;" alt="">
+                                                <p id="eID"></p>
+                                                <hr>
+                                                <p id="eName"> </p>
+                                                <hr>
+                                                <p id="ePlace"> </p>
+                                                <hr>
+                                                <p id="eDesignation"> </p>
+                                                <hr>
+                                                <p id="eExperiance"> </p>
+                                                <hr>
+                                                <p id="eSalary"> </p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Understood</button>
                                             </div>
                                         </div>
                                     </div>
@@ -157,6 +169,7 @@
         const empDesignation = document.getElementById('empDesig');
         const empExperiance = document.getElementById('empExp');
         const empSalary = document.getElementById('empSalary');
+        const search = document.getElementById('search');
 
 
         function logout() {
@@ -177,6 +190,23 @@
             alert('New Employee Added');
         }
 
+        function displayDetails() {
+            let id = search.value;
+            let Empdetails = JSON.parse(localStorage.getItem(id))
+            console.log(Empdetails);
+
+            if (Empdetails != null) {
+                document.getElementById('eID').innerHTML = `Employee ID : ${Empdetails.id}`;
+                document.getElementById('eName').innerHTML = `Employee name : ${Empdetails.name}`;
+                document.getElementById('ePlace').innerHTML = `Employee place : ${Empdetails.place}`;
+                document.getElementById('eDesignation').innerHTML = `Employee designation : ${Empdetails.designation}`;
+                document.getElementById('eExperiance').innerHTML = `Employee experiance : ${Empdetails.experiance}`;
+                document.getElementById('eSalary').innerHTML = `Employee salary : ${Empdetails.salary}`;
+            } else {
+                alert('Employee not found');
+            }
+
+        }
 
 
     </script>
