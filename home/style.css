@@ -1,31 +1,42 @@
-
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-.employSec{
+.employSec {
     background-color: rgb(232, 230, 230);
 }
 
-.emp img{
+.emp img {
     height: 350px;
     margin-top: 50px;
 }
-.emp{
+
+.emp {
     display: flex;
     justify-content: center;
     padding: 30px 0;
 }
-.employSec{
+
+.employSec {
     padding: 70px 0;
 }
-.empSearch{
+
+.empSearch {
     padding-top: 80px;
 }
-.findEmp{
+
+.findEmp {
     display: none;
 }
-#warning{
+
+#warning {
     color: red;
+}
+
+@media screen and (max-width : 600px) {
+    .emp img {
+        height: 250px;
+        margin-top: 0px;
+    }
 }
