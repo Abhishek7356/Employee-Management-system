@@ -9,7 +9,8 @@
 }
 
 .emp img{
-    width: 80%;
+    height: 350px;
+    margin-top: 50px;
 }
 .emp{
     display: flex;
@@ -20,6 +21,11 @@
     padding: 70px 0;
 }
 .empSearch{
-    display: flex;
-    justify-content: space-around
+    padding-top: 80px;
+}
+.findEmp{
+    display: none;
+}
+#warning{
+    color: red;
 }

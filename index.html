@@ -45,10 +45,11 @@
                         alt="" style="width: 80%;" class="image mt-4 ms-4">
                 </div>
                 <div class="col-md-5 py-5">
-                    <form class="my-5 p-5 ">
+                    <div class="my-5 p-5 ">
                         <div class="mb-3">
                             <label class="form-label">Name</label> <br>
                             <input type="text" id="fName" required>
+                            <small id="warning"></small>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Password</label> <br>
@@ -58,9 +59,10 @@
                             </div>
                         </div>
                         <!-- <a onclick="myFunc()" type="submit" class="btn btn-primary">Log in</a> -->
-                        <button style="font-family: 'Bai Jamjuree';" onclick="myFunc()" class="button-59" role="button">Log In</button>
+                        <button style="font-family: 'Bai Jamjuree';" onclick="myFunc()" class="button-59"
+                            role="button">Log In</button>
 
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -68,81 +70,59 @@
     <footer class="text-center text-white" style="background-color: #f1f1f1;">
         <!-- Grid container -->
         <div class="container pt-4">
-          <!-- Section: Social media -->
-          <section class="mb-4">
-            <!-- Facebook -->
-            <a
-              class="btn btn-link btn-floating btn-lg text-dark m-1"
-              href="#!"
-              role="button"
-              data-mdb-ripple-color="dark"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-      
-            <!-- Twitter -->
-            <a
-              class="btn btn-link btn-floating btn-lg text-dark m-1"
-              href="#!"
-              role="button"
-              data-mdb-ripple-color="dark"
-              ><i class="fab fa-twitter"></i
-            ></a>
-      
-            <!-- Google -->
-            <a
-              class="btn btn-link btn-floating btn-lg text-dark m-1"
-              href="#!"
-              role="button"
-              data-mdb-ripple-color="dark"
-              ><i class="fab fa-google"></i
-            ></a>
-      
-            <!-- Instagram -->
-            <a
-              class="btn btn-link btn-floating btn-lg text-dark m-1"
-              href="#!"
-              role="button"
-              data-mdb-ripple-color="dark"
-              ><i class="fab fa-instagram"></i
-            ></a>
-      
-            <!-- Linkedin -->
-            <a
-              class="btn btn-link btn-floating btn-lg text-dark m-1"
-              href="#!"
-              role="button"
-              data-mdb-ripple-color="dark"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-            <!-- Github -->
-            <a
-              class="btn btn-link btn-floating btn-lg text-dark m-1"
-              href="#!"
-              role="button"
-              data-mdb-ripple-color="dark"
-              ><i class="fab fa-github"></i
-            ></a>
-          </section>
-          <!-- Section: Social media -->
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
+
+                <!-- Twitter -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
+
+                <!-- Google -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-google"></i></a>
+
+                <!-- Instagram -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
+
+                <!-- Linkedin -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
+                <!-- Github -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
+            </section>
+            <!-- Section: Social media -->
         </div>
         <!-- Grid container -->
-      
+
         <!-- Copyright -->
         <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-          © 2020 Copyright:
-          <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+            © 2020 Copyright:
+            <a class="text-dark" href="#">Employee Management System</a>
         </div>
         <!-- Copyright -->
-      </footer>
+    </footer>
 
 
     <script>
+        const userName = document.getElementById('fName');
         function myFunc() {
-            let name = document.getElementById('fName').value;
-            console.log(name);
-            localStorage.setItem("name", name)
-            document.getElementById('fName').value = '';
-            location = './home/index.html';
+            let name = userName.value;
+            if (name.length == 0) {
+                alert('Please Enter your name');
+                userName.style.borderBottom = '1px solid red';
+                document.getElementById('warning').innerHTML = 'Enter your name';
+            } else {
+                console.log(name.length);
+                localStorage.setItem("name", name)
+                document.getElementById('fName').value = '';
+                location = './home/index.html';
+            }
+
         }
     </script>
 </body>

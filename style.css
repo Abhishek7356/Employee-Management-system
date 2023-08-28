@@ -30,6 +30,10 @@ small a{
     text-decoration: none;
     font-size: 15px;
 }
+#warning{
+    color: red;
+}
+
 
 small a:hover{
     text-decoration: underline;

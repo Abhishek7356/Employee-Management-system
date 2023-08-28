@@ -23,13 +23,13 @@
         <h3 class="text-light" id="name"></h3>
         <button type="button" class="btn btn-info fw-bold" onclick="logout()">Log out</button>
     </header>
-    <section class="employSec">
+    <section class="employSec" style="font-family:'Alegreya Sans SC'">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 emp">
+                <div class="col-md-4 emp">
                     <img src="./images/PinClipart.com_human-resource-clipart_5482067.png" alt="">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <h2 class="my-5 text-center">Employee Details</h2>
                     <form>
                         <div class="mb-3">
@@ -53,70 +53,42 @@
                         <button type="submit" onclick="addEmp()" class="btn btn-primary">Add Employee</button>
                     </form>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section style="background-color:rgb(232, 230, 230);" class="pb-5">
-        <div class="container">
-            <div class="row">
-                <hr>
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <form>
-
+                <div class="col-md-4">
+                    <div>
                         <div class="mb-3 pt-4">
-                            <label for="exampleInputEmail1" class="form-label">Find Employee</label>
                             <div class="empSearch">
-                                <input type="text" class="form-control" placeholder="Search employee ID" id="search">
-                                <!-- Button trigger modal -->
-                                <button id="modalButton" onclick="displayDetails()" type="button" class="btn btn-primary"
-                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                    Search
-                                </button>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Find Employee</label>
+                                    <input type="text" class="form-control" placeholder="Search employee ID"
+                                        id="search">
+                                    <small id="warning"></small>
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Employee Details
-                                                </h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img src="https://cdn0.iconfinder.com/data/icons/management-1/100/business-05-512.png"
-                                                    width="50%" style="display: block; margin: auto;" alt="">
-                                                <p id="eID"></p>
-                                                <hr>
-                                                <p id="eName"> </p>
-                                                <hr>
-                                                <p id="ePlace"> </p>
-                                                <hr>
-                                                <p id="eDesignation"> </p>
-                                                <hr>
-                                                <p id="eExperiance"> </p>
-                                                <hr>
-                                                <p id="eSalary"> </p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                </div>
+                                <button onclick="displayDetails()" class="btn btn-primary">Search</button>
+                                <div class="findEmp w-100" style="width: 18rem;">
+                                    <img class="card-img-top w-50 d-block mx-auto my-2" src="https://cdn4.iconfinder.com/data/icons/people-avatar-1-1/128/29-512.png" alt="Card image cap">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" id="eID"></li>
+                                        <li class="list-group-item" id="eName"></li>
+                                        <li class="list-group-item" id="ePlace"></li>
+                                        <li class="list-group-item" id="eDesignation"></li>
+                                        <li class="list-group-item" id="eExperiance"></li>
+                                        <li class="list-group-item" id="eSalary"></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
-                <div class="col-md-3"></div>
             </div>
         </div>
+        </div>
+        </form>
+        </div>
+        </div>
+        </div>
     </section>
+
 
     <footer class="text-center text-white" style="background-color: #f1f1f1;">
         <!-- Grid container -->
@@ -153,7 +125,7 @@
         <!-- Copyright -->
         <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2020 Copyright:
-            <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+            <a class="text-dark" href="#">Employee Management System</a>
         </div>
         <!-- Copyright -->
     </footer>
@@ -174,37 +146,52 @@
 
         function logout() {
             location = '../index.html';
+            localStorage.clear();
         }
 
         function addEmp() {
-            const employee = {};
-            employee.id = empId.value;
-            employee.name = empName.value;
-            employee.place = empPlace.value;
-            employee.designation = empDesignation.value;
-            employee.experiance = empExperiance.value;
-            employee.salary = empSalary.value;
-            console.log(employee);
 
-            localStorage.setItem(employee.id, JSON.stringify(employee));
-            alert('New Employee Added');
+            if (empId.value == '' || empName.value == '' || empPlace.value == '' || empDesignation.value == '' || empExperiance.value == '' || empSalary.value == '') {
+                alert('please add details correctly');
+            } else {
+                const employee = {};
+                employee.id = empId.value;
+                employee.name = empName.value;
+                employee.place = empPlace.value;
+                employee.designation = empDesignation.value;
+                employee.experiance = empExperiance.value;
+                employee.salary = empSalary.value;
+                console.log(employee);
+
+                localStorage.setItem(employee.id, JSON.stringify(employee));
+                alert('New Employee Added');
+            }
+
+
         }
 
         function displayDetails() {
             let id = search.value;
-            let Empdetails = JSON.parse(localStorage.getItem(id))
-            console.log(Empdetails);
 
-            if (Empdetails != null) {
+            let Empdetails = JSON.parse(localStorage.getItem(id))
+            if (Empdetails == null) {
+                document.getElementById('warning').innerHTML = 'Employee not found';
+                document.querySelector('.findEmp').style.display = 'none';
+            } else {
+                console.log(Empdetails);
+
                 document.getElementById('eID').innerHTML = `Employee ID : ${Empdetails.id}`;
                 document.getElementById('eName').innerHTML = `Employee name : ${Empdetails.name}`;
                 document.getElementById('ePlace').innerHTML = `Employee place : ${Empdetails.place}`;
                 document.getElementById('eDesignation').innerHTML = `Employee designation : ${Empdetails.designation}`;
                 document.getElementById('eExperiance').innerHTML = `Employee experiance : ${Empdetails.experiance}`;
                 document.getElementById('eSalary').innerHTML = `Employee salary : ${Empdetails.salary}`;
-            } else {
-                alert('Employee not found');
+                document.querySelector('.findEmp').style.display = 'block';
             }
+            if (id.length == 0) {
+                document.getElementById('warning').innerHTML = 'Please Employee Enter ID';
+            }
+
 
         }
 
