@@ -19,9 +19,12 @@
 </head>
 
 <body>
-    <header style="font-family:'Alegreya Sans SC'" class="d-flex justify-content-between p-3 bg-primary">
-        <h3 class="text-light" id="name"></h3>
-        <button type="button" class="btn btn-info fw-bold" onclick="logout()">Log out</button>
+    <header style="font-family:'Alegreya Sans SC';background-color: #f1f1f1;"
+        class="p-3">
+        <div class="container d-flex justify-content-between ">
+            <h3 class="text-dark" id="name"></h3>
+            <button type="button" class="btn btn-info fw-bold" onclick="logout()">Log out</button>
+        </div>
     </header>
     <section class="employSec" style="font-family:'Alegreya Sans SC'">
         <div class="container">
@@ -33,24 +36,26 @@
                     <h2 class="my-5 text-center">Employee Details</h2>
                     <form>
                         <div class="mb-3">
-                            <input type="text" id="empId" class="form-control" placeholder="Employee ID">
+                            <input type="text" id="empId" class="form-control shadow" placeholder="Employee ID">
                         </div>
                         <div class="mb-3">
-                            <input type="text" id="empName" class="form-control" placeholder="Employee Name">
+                            <input type="text" id="empName" class="form-control shadow" placeholder="Employee Name">
                         </div>
                         <div class="mb-3">
-                            <input type="text" id="empPlace" class="form-control" placeholder="Employee Place">
+                            <input type="text" id="empPlace" class="form-control shadow" placeholder="Employee Place">
                         </div>
                         <div class="mb-3">
-                            <input type="text" id="empDesig" class="form-control" placeholder="Employee Designation">
+                            <input type="text" id="empDesig" class="form-control shadow"
+                                placeholder="Employee Designation">
                         </div>
                         <div class="mb-3">
-                            <input type="text" id="empExp" class="form-control" placeholder="Employee Expriance">
+                            <input type="text" id="empExp" class="form-control shadow" placeholder="Employee Expriance">
                         </div>
                         <div class="mb-3">
-                            <input type="text" id="empSalary" class="form-control" placeholder="Employee Salary">
+                            <input type="text" id="empSalary" class="form-control shadow" placeholder="Employee Salary">
                         </div>
-                        <button type="submit" onclick="addEmp()" class="btn btn-primary">Add Employee</button>
+                        <button type="submit" onclick="addEmp()" class="rounded-pill btn btn-outline-primary fw-bold shadow">Add
+                            Employee</button>
                     </form>
                 </div>
                 <div class="col-md-4">
@@ -59,13 +64,14 @@
                             <div class="empSearch">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Find Employee</label>
-                                    <input type="text" class="form-control" placeholder="Search employee ID"
+                                    <input type="text" class="form-control shadow" placeholder="Search employee ID"
                                         id="search">
                                     <small id="warning"></small>
 
                                 </div>
-                                <button onclick="displayDetails()" class="btn btn-primary">Search</button>
-                                <div class="findEmp w-100 border border-2 bg-info border-light mt-3"
+                                <button onclick="displayDetails()"
+                                    class="rounded-pill shadow btn btn-outline-primary fw-bold">Search</button>
+                                <div class="findEmp w-100 border border-2 shadow bg-info border-light mt-3"
                                     style="width: 18rem;">
                                     <img class="card-img-top w-50 d-block mx-auto my-2"
                                         src="https://cdn4.iconfinder.com/data/icons/people-avatar-1-1/128/29-512.png"
